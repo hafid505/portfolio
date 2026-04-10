@@ -1,12 +1,4 @@
 export default function Page() {
-  const software = [
-    { name: "Ps", label: "Photoshop" },
-    { name: "Ai", label: "Illustrator" },
-    { name: "Ae", label: "After Effects" },
-    { name: "Pr", label: "Premiere Pro" },
-    { name: "Fg", label: "Figma" },
-  ];
-
   const projects = [
     {
       image: "/project-1.jpg",
@@ -28,525 +20,661 @@ export default function Page() {
     },
   ];
 
+  const software = [
+    { short: "Ps", name: "Photoshop" },
+    { short: "Ai", name: "Illustrator" },
+    { short: "Ae", name: "After Effects" },
+    { short: "Pr", name: "Premiere Pro" },
+    { short: "Id", name: "InDesign" },
+    { short: "Fg", name: "Figma" },
+  ];
+
   return (
-    <main style={styles.page}>
-      <div style={styles.backgroundGlowOne} />
-      <div style={styles.backgroundGlowTwo} />
+    <>
+      <style>{`
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+          margin: 0;
+          background: #05070b;
+          color: #f5f5f5;
+          font-family: Inter, Arial, sans-serif;
+        }
+        a { text-decoration: none; color: inherit; }
 
-      <header style={styles.navbar}>
-        <div style={styles.logo}>Abdulhafid</div>
+        .page {
+          min-height: 100vh;
+          background:
+            radial-gradient(circle at top, rgba(145,255,0,0.06), transparent 18%),
+            linear-gradient(180deg, #04060a 0%, #05070b 100%);
+          padding: 24px;
+        }
 
-        <nav style={styles.navLinks}>
-          <a href="#work" style={styles.navLink}>Work</a>
-          <a href="#about" style={styles.navLink}>About</a>
-          <a href="#contact" style={styles.navLink}>Contact</a>
-        </nav>
+        .container {
+          max-width: 1400px;
+          margin: 0 auto;
+        }
 
-        <a href="/cv.pdf" download style={styles.cvButton}>
-          Download my CV
-        </a>
-      </header>
+        .nav {
+          position: sticky;
+          top: 16px;
+          z-index: 20;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 18px 24px;
+          margin-bottom: 28px;
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 28px;
+          background: rgba(10,12,18,0.82);
+          backdrop-filter: blur(14px);
+          box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+        }
 
-      <section style={styles.heroSection}>
-        <div style={styles.heroLeft}>
-          <div style={styles.availabilityBadge}>
-            <span style={styles.greenDot} />
-            Available for projects
-          </div>
+        .brand {
+          font-size: 22px;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+        }
 
-          <div style={styles.heroLabel}>Selected Works 2025</div>
+        .nav-links {
+          display: flex;
+          gap: 30px;
+          color: rgba(255,255,255,0.8);
+          font-weight: 500;
+        }
 
-          <h1 style={styles.heroTitle}>
-            Hi, I’m Abdulhafid, a Graphic Designer, Video Editor, and Social Media Manager.
-          </h1>
+        .cv-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 16px 26px;
+          border-radius: 999px;
+          background: #91ff00;
+          color: #071000;
+          font-weight: 800;
+          font-size: 18px;
+          box-shadow: 0 10px 30px rgba(145,255,0,0.18);
+        }
 
-          <p style={styles.heroText}>
-            I create visual content that helps brands, media companies, and organizations
-            look professional, communicate clearly, and connect better with their audience.
-          </p>
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.65fr 0.95fr;
+          gap: 24px;
+          align-items: stretch;
+        }
 
-          <div style={styles.heroButtons}>
-            <a href="#contact" style={styles.primaryButton}>Get in touch</a>
-            <a
-              href="https://www.linkedin.com/in/hafid505"
-              target="_blank"
-              rel="noreferrer"
-              style={styles.secondaryButton}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.behance.net/hafid505"
-              target="_blank"
-              rel="noreferrer"
-              style={styles.secondaryButton}
-            >
-              Behance
-            </a>
-          </div>
-        </div>
+        .card {
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 34px;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+          box-shadow: 0 24px 48px rgba(0,0,0,0.32);
+        }
 
-        <div style={styles.heroRight}>
-          <div style={styles.rightCardTop}>
-            <img src="/profile.jpg" alt="Abdulhafid" style={styles.profileImage} />
+        .hero-main {
+          padding: 48px;
+          background:
+            radial-gradient(circle at top left, rgba(145,255,0,0.08), transparent 20%),
+            linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+        }
 
-            <div>
-              <div style={styles.sideMiniLabel}>Creative Direction</div>
-              <h2 style={styles.sideTitle}>Abdulhafid</h2>
-              <p style={styles.sideText}>
-                Branding, visual communication, video editing, and digital content design.
-              </p>
+        .badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 18px;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.03);
+          font-size: 15px;
+          color: rgba(255,255,255,0.92);
+        }
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 999px;
+          background: #91ff00;
+          box-shadow: 0 0 14px rgba(145,255,0,0.8);
+        }
+
+        .eyebrow {
+          margin-top: 24px;
+          margin-bottom: 18px;
+          font-size: 13px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.42);
+        }
+
+        .hero-title {
+          margin: 0 0 26px 0;
+          max-width: 900px;
+          font-size: clamp(54px, 7vw, 92px);
+          line-height: 0.94;
+          font-weight: 900;
+          letter-spacing: -0.05em;
+        }
+
+        .hero-text {
+          margin: 0 0 34px 0;
+          max-width: 760px;
+          font-size: clamp(20px, 2vw, 24px);
+          line-height: 1.75;
+          color: rgba(255,255,255,0.72);
+        }
+
+        .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 14px;
+        }
+
+        .primary-btn, .secondary-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 62px;
+          padding: 16px 26px;
+          border-radius: 20px;
+          font-size: 18px;
+          font-weight: 800;
+          transition: 0.2s ease;
+        }
+
+        .primary-btn {
+          background: #91ff00;
+          color: #071000;
+          box-shadow: 0 10px 30px rgba(145,255,0,0.18);
+        }
+
+        .secondary-btn {
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.08);
+          color: #fff;
+        }
+
+        .hero-side {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        .profile-card {
+          padding: 34px;
+        }
+
+        .profile-image {
+          width: 110px;
+          height: 110px;
+          border-radius: 999px;
+          object-fit: cover;
+          border: 2px solid rgba(255,255,255,0.18);
+          display: block;
+          margin-bottom: 22px;
+        }
+
+        .mini-label {
+          margin-bottom: 14px;
+          font-size: 13px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: #91ff00;
+        }
+
+        .profile-title {
+          margin: 0 0 14px 0;
+          font-size: clamp(30px, 2.2vw, 42px);
+          line-height: 1.06;
+          letter-spacing: -0.03em;
+        }
+
+        .profile-text {
+          margin: 0;
+          font-size: 19px;
+          line-height: 1.8;
+          color: rgba(255,255,255,0.72);
+        }
+
+        .software-card,
+        .focus-card,
+        .section-card,
+        .contact-card,
+        .about-card {
+          padding: 30px;
+        }
+
+        .card-label {
+          margin-bottom: 18px;
+          font-size: 13px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.42);
+        }
+
+        .software-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+
+        .software-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 16px 18px;
+          border-radius: 18px;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.03);
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .software-icon {
+          width: 46px;
+          height: 46px;
+          min-width: 46px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 14px;
+          background: rgba(145,255,0,0.08);
+          border: 1px solid rgba(145,255,0,0.18);
+          color: #91ff00;
+          font-weight: 900;
+          font-size: 24px;
+        }
+
+        .focus-text {
+          font-size: clamp(30px, 3vw, 44px);
+          line-height: 1.08;
+          font-weight: 900;
+          letter-spacing: -0.04em;
+        }
+
+        .section-card {
+          margin-top: 24px;
+        }
+
+        .section-title {
+          margin: 0 0 12px 0;
+          font-size: clamp(38px, 4vw, 56px);
+          line-height: 1;
+          letter-spacing: -0.04em;
+        }
+
+        .section-text {
+          max-width: 900px;
+          margin: 0 0 26px 0;
+          font-size: 18px;
+          line-height: 1.8;
+          color: rgba(255,255,255,0.72);
+        }
+
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
+
+        .project-card {
+          overflow: hidden;
+          border-radius: 28px;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.03);
+        }
+
+        .project-image {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+          display: block;
+        }
+
+        .project-content {
+          padding: 20px;
+        }
+
+        .project-title {
+          margin: 0 0 12px 0;
+          font-size: 22px;
+          line-height: 1.15;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+        }
+
+        .project-text {
+          margin: 0;
+          font-size: 17px;
+          line-height: 1.75;
+          color: rgba(255,255,255,0.7);
+        }
+
+        .about-grid,
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+          margin-top: 24px;
+        }
+
+        .about-title,
+        .contact-title {
+          margin: 0 0 14px 0;
+          font-size: 32px;
+          line-height: 1.1;
+          letter-spacing: -0.03em;
+        }
+
+        .about-text,
+        .contact-text {
+          margin: 0;
+          font-size: 18px;
+          line-height: 1.8;
+          color: rgba(255,255,255,0.72);
+        }
+
+        .contact-list {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          margin-top: 18px;
+        }
+
+        .contact-link {
+          padding: 16px 18px;
+          border-radius: 18px;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.03);
+          font-size: 17px;
+          color: rgba(255,255,255,0.92);
+        }
+
+        @media (max-width: 1100px) {
+          .hero-grid,
+          .about-grid,
+          .contact-grid,
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .hero-main {
+            padding: 34px;
+          }
+
+          .hero-title {
+            font-size: clamp(46px, 11vw, 72px);
+          }
+
+          .hero-text,
+          .profile-text,
+          .about-text,
+          .contact-text,
+          .section-text,
+          .project-text {
+            font-size: 17px;
+          }
+        }
+
+        @media (max-width: 700px) {
+          .page {
+            padding: 14px;
+          }
+
+          .nav {
+            padding: 16px 18px;
+            border-radius: 22px;
+            flex-wrap: wrap;
+          }
+
+          .nav-links {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+            gap: 22px;
+            font-size: 15px;
+          }
+
+          .brand {
+            font-size: 18px;
+          }
+
+          .cv-btn {
+            width: 100%;
+            font-size: 17px;
+          }
+
+          .hero-main,
+          .profile-card,
+          .software-card,
+          .focus-card,
+          .section-card,
+          .about-card,
+          .contact-card {
+            padding: 22px;
+            border-radius: 24px;
+          }
+
+          .hero-actions {
+            flex-direction: column;
+          }
+
+          .primary-btn,
+          .secondary-btn {
+            width: 100%;
+          }
+
+          .software-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .profile-image {
+            width: 86px;
+            height: 86px;
+          }
+
+          .focus-text {
+            font-size: 28px;
+          }
+        }
+      `}</style>
+
+      <main className="page">
+        <div className="container">
+          <nav className="nav">
+            <div className="brand">Abdulhafid</div>
+
+            <div className="nav-links">
+              <a href="#work">Work</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
             </div>
-          </div>
 
-          <div style={styles.toolsBox}>
-            <div style={styles.toolsTitle}>Software</div>
-            <div style={styles.softwareGrid}>
-              {software.map((item) => (
-                <div key={item.label} style={styles.softwareItem}>
-                  <div style={styles.softwareIcon}>{item.name}</div>
-                  <span style={styles.softwareLabel}>{item.label}</span>
+            <a href="/cv.pdf" download className="cv-btn">
+              Download my CV
+            </a>
+          </nav>
+
+          <section className="hero-grid">
+            <div className="card hero-main">
+              <div className="badge">
+                <span className="dot" />
+                Available for projects
+              </div>
+
+              <div className="eyebrow">Creative Portfolio</div>
+
+              <h1 className="hero-title">
+                Abdulhafid crafts design, video, and social media visuals that
+                help brands communicate with clarity and impact.
+              </h1>
+
+              <p className="hero-text">
+                I create branding, campaign materials, edited video content, and
+                platform-ready creative work designed to look polished, feel
+                modern, and connect with the right audience.
+              </p>
+
+              <div className="hero-actions">
+                <a href="#contact" className="primary-btn">
+                  Get in touch
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/hafid505"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="secondary-btn"
+                >
+                  LinkedIn
+                </a>
+
+                <a
+                  href="https://www.behance.net/hafid505"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="secondary-btn"
+                >
+                  Behance
+                </a>
+              </div>
+            </div>
+
+            <div className="hero-side">
+              <div className="card profile-card">
+                <img
+                  src="/profile.jpg"
+                  alt="Abdulhafid"
+                  className="profile-image"
+                />
+
+                <div className="mini-label">Creative Profile</div>
+
+                <h2 className="profile-title">
+                  Graphic designer and video editor focused on digital
+                  communication.
+                </h2>
+
+                <p className="profile-text">
+                  I build visual content across branding, social media,
+                  campaigns, and video, with a strong focus on clean design,
+                  consistency, and audience-friendly presentation.
+                </p>
+              </div>
+
+              <div className="card software-card">
+                <div className="card-label">Software</div>
+
+                <div className="software-grid">
+                  {software.map((item) => (
+                    <div className="software-item" key={item.name}>
+                      <span className="software-icon">{item.short}</span>
+                      <span>{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="card focus-card">
+                <div className="card-label">Focus</div>
+                <div className="focus-text">
+                  Branding, Campaign Design, Video Editing, Social Media Content
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="work" className="card section-card">
+            <h2 className="section-title">Featured Work</h2>
+            <p className="section-text">
+              A selection of branding, campaign design, video, and social media
+              work created for digital communication and visual impact.
+            </p>
+
+            <div className="projects-grid">
+              {projects.map((project) => (
+                <div className="project-card" key={project.title}>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image"
+                  />
+                  <div className="project-content">
+                    <h3 className="project-title">{project.title}</h3>
+                    <p className="project-text">{project.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
 
-          <div style={styles.focusBox}>
-            <div style={styles.focusLabel}>Focus</div>
-            <div style={styles.focusText}>Branding, Social Media, Video Content</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" style={styles.sectionCard}>
-        <h2 style={styles.sectionTitle}>Featured Work</h2>
-        <p style={styles.sectionText}>
-          A selection of projects focused on visual storytelling, branding, social media, and digital content production.
-        </p>
-
-        <div style={styles.projectGrid}>
-          {projects.map((project) => (
-            <div key={project.title} style={styles.projectCard}>
-              <img src={project.image} alt={project.title} style={styles.projectImage} />
-              <h3 style={styles.projectTitle}>{project.title}</h3>
-              <p style={styles.projectDescription}>{project.description}</p>
+          <section id="about" className="about-grid">
+            <div className="card about-card">
+              <h2 className="about-title">About</h2>
+              <p className="about-text">
+                I work in graphic design, video editing, and social media
+                content, creating visual work that is practical, modern, and
+                built for real communication goals.
+              </p>
             </div>
-          ))}
+
+            <div className="card about-card">
+              <h2 className="about-title">What I do</h2>
+              <p className="about-text">
+                Branding support, campaign visuals, content layouts, promotional
+                edits, social media design, and creative materials prepared for
+                digital platforms and presentations.
+              </p>
+            </div>
+          </section>
+
+          <section id="contact" className="contact-grid">
+            <div className="card contact-card">
+              <h2 className="contact-title">Let’s work together</h2>
+              <p className="contact-text">
+                Available for freelance work, collaborations, brand visuals,
+                campaign design, social media content, and video editing
+                projects.
+              </p>
+            </div>
+
+            <div className="card contact-card">
+              <h2 className="contact-title">Contact</h2>
+              <p className="contact-text">
+                Reach out through email or connect with me on LinkedIn and
+                Behance.
+              </p>
+
+              <div className="contact-list">
+                <a className="contact-link" href="mailto:hafid.360@gmail.com">
+                  hafid.360@gmail.com
+                </a>
+
+                <a
+                  className="contact-link"
+                  href="https://www.linkedin.com/in/hafid505"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn Profile
+                </a>
+
+                <a
+                  className="contact-link"
+                  href="https://www.behance.net/hafid505"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Behance Portfolio
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
-
-      <section id="about" style={styles.sectionCard}>
-        <h2 style={styles.sectionTitle}>About</h2>
-        <p style={styles.aboutText}>
-          I work across graphic design, social media content, video editing, and campaign visuals.
-          My goal is to create clear, polished, and engaging creative work that supports brands,
-          businesses, and organizations in a professional way.
-        </p>
-      </section>
-
-      <section id="contact" style={styles.sectionCard}>
-        <h2 style={styles.sectionTitle}>Let’s Work Together</h2>
-        <p style={styles.sectionText}>
-          Open to freelance projects, collaborations, and creative opportunities.
-        </p>
-
-        <div style={styles.contactButtons}>
-          <a href="mailto:hafid.360@gmail.com" style={styles.primaryButton}>
-            Email Me
-          </a>
-          <a
-            href="https://wa.me/252612085585"
-            target="_blank"
-            rel="noreferrer"
-            style={styles.secondaryButton}
-          >
-            WhatsApp
-          </a>
-        </div>
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    backgroundColor: "#02050b",
-    color: "#ffffff",
-    padding: "24px",
-    fontFamily:
-      'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    position: "relative",
-    overflowX: "hidden",
-  },
-
-  backgroundGlowOne: {
-    position: "absolute",
-    top: 120,
-    left: -120,
-    width: 420,
-    height: 420,
-    background: "radial-gradient(circle, rgba(142,255,0,0.08), transparent 65%)",
-    filter: "blur(30px)",
-    pointerEvents: "none",
-  },
-
-  backgroundGlowTwo: {
-    position: "absolute",
-    top: 380,
-    right: -120,
-    width: 440,
-    height: 440,
-    background: "radial-gradient(circle, rgba(255,255,255,0.05), transparent 65%)",
-    filter: "blur(40px)",
-    pointerEvents: "none",
-  },
-
-  navbar: {
-    maxWidth: "1400px",
-    margin: "0 auto 28px auto",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "28px",
-    padding: "20px 24px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: "20px",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
-    backdropFilter: "blur(12px)",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
-    position: "sticky",
-    top: "20px",
-    zIndex: 20,
-  },
-
-  logo: {
-    fontSize: "24px",
-    fontWeight: 800,
-    letterSpacing: "-0.03em",
-  },
-
-  navLinks: {
-    display: "flex",
-    gap: "28px",
-    alignItems: "center",
-  },
-
-  navLink: {
-    color: "rgba(255,255,255,0.82)",
-    textDecoration: "none",
-    fontSize: "18px",
-    fontWeight: 500,
-  },
-
-  cvButton: {
-    backgroundColor: "#95ff17",
-    color: "#071100",
-    textDecoration: "none",
-    padding: "16px 28px",
-    borderRadius: "999px",
-    fontWeight: 800,
-    fontSize: "18px",
-    boxShadow: "0 8px 20px rgba(149,255,23,0.22)",
-  },
-
-  heroSection: {
-    maxWidth: "1400px",
-    margin: "0 auto 28px auto",
-    display: "grid",
-    gridTemplateColumns: "1.65fr 1fr",
-    gap: "24px",
-    alignItems: "stretch",
-  },
-
-  heroLeft: {
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "34px",
-    padding: "52px",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02))",
-    boxShadow: "0 24px 60px rgba(0,0,0,0.35)",
-  },
-
-  availabilityBadge: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "10px",
-    padding: "12px 18px",
-    borderRadius: "999px",
-    border: "1px solid rgba(255,255,255,0.08)",
-    backgroundColor: "rgba(255,255,255,0.03)",
-    fontSize: "16px",
-    color: "rgba(255,255,255,0.9)",
-    marginBottom: "18px",
-  },
-
-  greenDot: {
-    width: "10px",
-    height: "10px",
-    borderRadius: "50%",
-    backgroundColor: "#95ff17",
-    boxShadow: "0 0 12px rgba(149,255,23,0.7)",
-  },
-
-  heroLabel: {
-    fontSize: "14px",
-    textTransform: "uppercase",
-    letterSpacing: "0.18em",
-    color: "rgba(255,255,255,0.45)",
-    marginBottom: "18px",
-  },
-
-  heroTitle: {
-    fontSize: "clamp(52px, 7vw, 86px)",
-    lineHeight: 1.02,
-    margin: "0 0 28px 0",
-    letterSpacing: "-0.05em",
-    fontWeight: 800,
-    maxWidth: "900px",
-  },
-
-  heroText: {
-    fontSize: "clamp(20px, 2vw, 26px)",
-    lineHeight: 1.7,
-    color: "rgba(255,255,255,0.7)",
-    maxWidth: "900px",
-    marginBottom: "34px",
-  },
-
-  heroButtons: {
-    display: "flex",
-    gap: "14px",
-    flexWrap: "wrap",
-  },
-
-  primaryButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#95ff17",
-    color: "#071100",
-    textDecoration: "none",
-    padding: "18px 28px",
-    borderRadius: "18px",
-    fontWeight: 800,
-    fontSize: "18px",
-    minWidth: "160px",
-  },
-
-  secondaryButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textDecoration: "none",
-    color: "#ffffff",
-    padding: "18px 26px",
-    borderRadius: "18px",
-    border: "1px solid rgba(255,255,255,0.08)",
-    backgroundColor: "rgba(255,255,255,0.03)",
-    fontWeight: 700,
-    fontSize: "18px",
-  },
-
-  heroRight: {
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "34px",
-    padding: "34px",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02))",
-    boxShadow: "0 24px 60px rgba(0,0,0,0.35)",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    gap: "24px",
-  },
-
-  rightCardTop: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "20px",
-  },
-
-  profileImage: {
-    width: "120px",
-    height: "120px",
-    borderRadius: "999px",
-    objectFit: "cover",
-    border: "2px solid rgba(255,255,255,0.18)",
-    boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
-  },
-
-  sideMiniLabel: {
-    fontSize: "13px",
-    textTransform: "uppercase",
-    letterSpacing: "0.16em",
-    color: "#95ff17",
-    marginBottom: "10px",
-  },
-
-  sideTitle: {
-    fontSize: "48px",
-    lineHeight: 1.05,
-    margin: "0 0 12px 0",
-    letterSpacing: "-0.04em",
-    fontWeight: 800,
-  },
-
-  sideText: {
-    fontSize: "19px",
-    lineHeight: 1.7,
-    color: "rgba(255,255,255,0.68)",
-    margin: 0,
-  },
-
-  toolsBox: {
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "24px",
-    padding: "22px",
-    backgroundColor: "rgba(255,255,255,0.02)",
-  },
-
-  toolsTitle: {
-    fontSize: "15px",
-    textTransform: "uppercase",
-    letterSpacing: "0.14em",
-    color: "rgba(255,255,255,0.48)",
-    marginBottom: "18px",
-  },
-
-  softwareGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: "14px",
-  },
-
-  softwareItem: {
-    display: "flex",
-    alignItems: "center",
-    gap: "12px",
-    padding: "12px 14px",
-    borderRadius: "18px",
-    border: "1px solid rgba(255,255,255,0.08)",
-    backgroundColor: "rgba(255,255,255,0.025)",
-  },
-
-  softwareIcon: {
-    width: "42px",
-    height: "42px",
-    minWidth: "42px",
-    borderRadius: "12px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontWeight: 800,
-    fontSize: "16px",
-    color: "#95ff17",
-    backgroundColor: "rgba(149,255,23,0.08)",
-    border: "1px solid rgba(149,255,23,0.16)",
-  },
-
-  softwareLabel: {
-    fontSize: "16px",
-    color: "rgba(255,255,255,0.9)",
-    fontWeight: 600,
-  },
-
-  focusBox: {
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "24px",
-    padding: "22px",
-    backgroundColor: "rgba(255,255,255,0.02)",
-  },
-
-  focusLabel: {
-    fontSize: "15px",
-    color: "rgba(255,255,255,0.48)",
-    marginBottom: "10px",
-  },
-
-  focusText: {
-    fontSize: "34px",
-    lineHeight: 1.15,
-    letterSpacing: "-0.03em",
-    fontWeight: 800,
-  },
-
-  sectionCard: {
-    maxWidth: "1400px",
-    margin: "0 auto 28px auto",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "34px",
-    padding: "40px",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02))",
-    boxShadow: "0 24px 60px rgba(0,0,0,0.35)",
-  },
-
-  sectionTitle: {
-    fontSize: "54px",
-    lineHeight: 1.05,
-    margin: "0 0 16px 0",
-    letterSpacing: "-0.04em",
-    fontWeight: 800,
-  },
-
-  sectionText: {
-    fontSize: "20px",
-    lineHeight: 1.7,
-    color: "rgba(255,255,255,0.68)",
-    maxWidth: "980px",
-    marginBottom: "28px",
-  },
-
-  projectGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-    gap: "20px",
-  },
-
-  projectCard: {
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "28px",
-    padding: "18px",
-    backgroundColor: "rgba(255,255,255,0.02)",
-  },
-
-  projectImage: {
-    width: "100%",
-    aspectRatio: "4 / 3",
-    objectFit: "cover",
-    borderRadius: "22px",
-    display: "block",
-    marginBottom: "18px",
-  },
-
-  projectTitle: {
-    fontSize: "24px",
-    lineHeight: 1.2,
-    margin: "0 0 12px 0",
-    fontWeight: 800,
-    letterSpacing: "-0.03em",
-  },
-
-  projectDescription: {
-    fontSize: "18px",
-    lineHeight: 1.7,
-    color: "rgba(255,255,255,0.68)",
-    margin: 0,
-  },
-
-  aboutText: {
-    fontSize: "22px",
-    lineHeight: 1.8,
-    color: "rgba(255,255,255,0.72)",
-    maxWidth: "1000px",
-    margin: 0,
-  },
-
-  contactButtons: {
-    display: "flex",
-    gap: "14px",
-    flexWrap: "wrap",
-  },
-};
