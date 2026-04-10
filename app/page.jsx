@@ -47,51 +47,64 @@ export default function Page() {
         </a>
       </header>
 
-      <section style={styles.heroSection}>
-        <div style={styles.heroCard}>
-          <div style={styles.availableBadge}>
-            <span style={styles.greenDot} />
-            Available for projects
-          </div>
+<section style={styles.heroSection}>
+  <div style={styles.heroLeftCard}>
+    <div style={styles.availableBadge}>
+      <span style={styles.greenDot} />
+      Available for projects
+    </div>
 
-          <img
-            src="/profile.jpg"
-            alt="Abdulhafid"
-            style={styles.smallProfileImage}
-          />
+    <h1 style={styles.heroTitle}>
+      Hi, I’m Abdulhafid, a Graphic Designer, Video Editor, and Social
+      Media Manager.
+    </h1>
 
-          <h1 style={styles.heroTitle}>
-            Hi, I’m Abdulhafid, a Graphic Designer, Video Editor, and Social
-            Media Manager.
-          </h1>
+    <p style={styles.heroText}>
+      I create visual content that helps brands, media companies, and
+      organizations look professional, communicate clearly, and connect
+      better with their audience.
+    </p>
 
-          <p style={styles.heroText}>
-            I create visual content that helps brands, media companies, and
-            organizations look professional, communicate clearly, and connect
-            better with their audience.
-          </p>
+    <div style={styles.heroButtons}>
+      <a href="#contact" style={styles.primaryButton}>Get in touch</a>
+      <a
+        href="https://www.linkedin.com/in/hafid505"
+        target="_blank"
+        rel="noreferrer"
+        style={styles.secondaryButton}
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://www.behance.net/hafid505"
+        target="_blank"
+        rel="noreferrer"
+        style={styles.secondaryButton}
+      >
+        Behance
+      </a>
+    </div>
+  </div>
 
-          <div style={styles.heroButtons}>
-            <a href="#contact" style={styles.primaryButton}>Get in touch</a>
-            <a
-              href="https://www.linkedin.com/in/hafid505"
-              target="_blank"
-              rel="noreferrer"
-              style={styles.secondaryButton}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.behance.net/hafid505"
-              target="_blank"
-              rel="noreferrer"
-              style={styles.secondaryButton}
-            >
-              Behance
-            </a>
-          </div>
-        </div>
-      </section>
+  <div style={styles.heroRightCard}>
+    <img
+      src="/profile.jpg"
+      alt="Abdulhafid"
+      style={styles.rightProfileImage}
+    />
+
+    <h3 style={styles.rightCardTitle}>Abdulhafid</h3>
+    <p style={styles.rightCardText}>
+      Graphic Designer, Video Editor, and Social Media Manager focused on
+      creative visuals, campaigns, and digital content.
+    </p>
+
+    <div style={styles.rightInfoBox}>
+      <div style={styles.rightInfoLabel}>Focus</div>
+      <div style={styles.rightInfoValue}>Design, Video, Content</div>
+    </div>
+  </div>
+</section>
 
       <section id="work" style={styles.section}>
         <div style={styles.sectionCard}>
@@ -234,11 +247,75 @@ const styles = {
     display: "inline-block",
   },
 
-  heroSection: {
-    maxWidth: "1280px",
-    margin: "0 auto",
-  },
+heroSection: {
+  maxWidth: "1280px",
+  margin: "0 auto",
+  display: "grid",
+  gridTemplateColumns: "1.6fr 1fr",
+  gap: "24px",
+},
+heroLeftCard: {
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: "32px",
+  padding: "48px",
+  background:
+    "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
+  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+},
 
+heroRightCard: {
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: "32px",
+  padding: "32px",
+  background:
+    "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
+  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+},
+
+rightProfileImage: {
+  width: "110px",
+  height: "110px",
+  borderRadius: "50%",
+  objectFit: "cover",
+  display: "block",
+  border: "2px solid rgba(255,255,255,0.12)",
+  marginBottom: "24px",
+},
+
+rightCardTitle: {
+  fontSize: "30px",
+  fontWeight: "700",
+  margin: "0 0 14px 0",
+},
+
+rightCardText: {
+  fontSize: "17px",
+  lineHeight: "1.8",
+  color: "rgba(255,255,255,0.68)",
+  margin: "0 0 24px 0",
+},
+
+rightInfoBox: {
+  marginTop: "auto",
+  padding: "18px 20px",
+  borderRadius: "20px",
+  border: "1px solid rgba(255,255,255,0.08)",
+  backgroundColor: "rgba(255,255,255,0.04)",
+},
+
+rightInfoLabel: {
+  fontSize: "13px",
+  color: "rgba(255,255,255,0.55)",
+  marginBottom: "8px",
+},
+
+rightInfoValue: {
+  fontSize: "18px",
+  fontWeight: "600",
+},
   heroCard: {
     border: "1px solid rgba(255,255,255,0.08)",
     borderRadius: "32px",
