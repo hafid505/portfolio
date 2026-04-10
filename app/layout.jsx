@@ -1,4 +1,3 @@
-// app/layout.jsx
 export const metadata = {
   title: "Abdulhafid Portfolio",
   description: "Graphic Designer, Video Editor, Social Media Manager",
