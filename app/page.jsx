@@ -37,15 +37,9 @@ export default function Page() {
         <div style={styles.logo}>Abdulhafid</div>
 
         <nav style={styles.nav}>
-          <a href="#work" style={styles.navLink}>
-            Work
-          </a>
-          <a href="#about" style={styles.navLink}>
-            About
-          </a>
-          <a href="#contact" style={styles.navLink}>
-            Contact
-          </a>
+          <a href="#work" style={styles.navLink}>Work</a>
+          <a href="#about" style={styles.navLink}>About</a>
+          <a href="#contact" style={styles.navLink}>Contact</a>
         </nav>
 
         <a href="/cv.pdf" download style={styles.cvButton}>
@@ -54,11 +48,17 @@ export default function Page() {
       </header>
 
       <section style={styles.heroSection}>
-        <div style={styles.heroLeft}>
+        <div style={styles.heroCard}>
           <div style={styles.availableBadge}>
             <span style={styles.greenDot} />
             Available for projects
           </div>
+
+          <img
+            src="/profile.jpg"
+            alt="Abdulhafid"
+            style={styles.smallProfileImage}
+          />
 
           <h1 style={styles.heroTitle}>
             Hi, I’m Abdulhafid, a Graphic Designer, Video Editor, and Social
@@ -72,9 +72,7 @@ export default function Page() {
           </p>
 
           <div style={styles.heroButtons}>
-            <a href="#contact" style={styles.primaryButton}>
-              Get in touch
-            </a>
+            <a href="#contact" style={styles.primaryButton}>Get in touch</a>
             <a
               href="https://www.linkedin.com/in/hafid505"
               target="_blank"
@@ -91,16 +89,6 @@ export default function Page() {
             >
               Behance
             </a>
-          </div>
-        </div>
-
-        <div style={styles.heroRight}>
-          <div style={styles.profileCard}>
-            <img
-              src="/profile.jpg"
-              alt="Abdulhafid"
-              style={styles.profileImage}
-            />
           </div>
         </div>
       </section>
@@ -249,46 +237,15 @@ const styles = {
   heroSection: {
     maxWidth: "1280px",
     margin: "0 auto",
-    display: "grid",
-    gridTemplateColumns: "1.6fr 1fr",
-    gap: "24px",
   },
 
-  heroLeft: {
+  heroCard: {
     border: "1px solid rgba(255,255,255,0.08)",
     borderRadius: "32px",
     padding: "48px",
     background:
       "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
     boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-  },
-
-  heroRight: {
-    display: "flex",
-  },
-
-  profileCard: {
-    width: "100%",
-    minHeight: "100%",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "32px",
-    overflow: "hidden",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "24px",
-  },
-
-  profileImage: {
-    width: "100%",
-    maxWidth: "420px",
-    aspectRatio: "1 / 1",
-    objectFit: "cover",
-    borderRadius: "28px",
-    display: "block",
   },
 
   availableBadge: {
@@ -301,7 +258,7 @@ const styles = {
     backgroundColor: "rgba(255,255,255,0.04)",
     color: "rgba(255,255,255,0.8)",
     fontSize: "14px",
-    marginBottom: "22px",
+    marginBottom: "20px",
   },
 
   greenDot: {
@@ -310,6 +267,16 @@ const styles = {
     borderRadius: "50%",
     backgroundColor: "#8CFF1A",
     display: "inline-block",
+  },
+
+  smallProfileImage: {
+    width: "96px",
+    height: "96px",
+    borderRadius: "50%",
+    objectFit: "cover",
+    display: "block",
+    border: "2px solid rgba(255,255,255,0.12)",
+    marginBottom: "24px",
   },
 
   heroTitle: {
