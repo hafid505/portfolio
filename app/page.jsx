@@ -166,7 +166,7 @@ export default function Page() {
               hafid.360@gmail.com
             </a>
             <a
-              href="https://wa.me/252612085585"
+              href="https://wa.me/971582048919"
               target="_blank"
               rel="noreferrer"
               style={styles.secondaryButton}
