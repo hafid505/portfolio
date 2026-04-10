@@ -1,42 +1,42 @@
 export default function Page() {
+  const software = [
+    { name: "Ps", label: "Photoshop" },
+    { name: "Ai", label: "Illustrator" },
+    { name: "Ae", label: "After Effects" },
+    { name: "Pr", label: "Premiere Pro" },
+    { name: "Fg", label: "Figma" },
+  ];
+
   const projects = [
     {
+      image: "/project-1.jpg",
       title: "Campaign & Communication Design",
       description:
         "Awareness materials, social media creatives, branding assets, and visual communication work for organizations and brands.",
-      image: "/project-1.jpg",
     },
     {
+      image: "/project-2.jpg",
       title: "Video Editing & Motion",
       description:
         "Promotional videos, short-form content, event edits, and storytelling visuals prepared for digital platforms and media use.",
-      image: "/project-2.jpg",
     },
     {
+      image: "/project-3.jpg",
       title: "Social Media Content",
       description:
         "Content design, post layouts, campaign visuals, and platform-ready creative assets built for engagement and consistency.",
-      image: "/project-3.jpg",
     },
-  ];
-
-  const tools = [
-    "Adobe Photoshop",
-    "Adobe Illustrator",
-    "Premiere Pro",
-    "After Effects",
-    "Canva",
-    "CapCut",
-    "Content Design",
-    "Social Media Management",
   ];
 
   return (
     <main style={styles.page}>
-      <header style={styles.header}>
+      <div style={styles.backgroundGlowOne} />
+      <div style={styles.backgroundGlowTwo} />
+
+      <header style={styles.navbar}>
         <div style={styles.logo}>Abdulhafid</div>
 
-        <nav style={styles.nav}>
+        <nav style={styles.navLinks}>
           <a href="#work" style={styles.navLink}>Work</a>
           <a href="#about" style={styles.navLink}>About</a>
           <a href="#contact" style={styles.navLink}>Contact</a>
@@ -47,146 +47,121 @@ export default function Page() {
         </a>
       </header>
 
-<section style={styles.heroSection}>
-  <div style={styles.heroLeftCard}>
-    <div style={styles.availableBadge}>
-      <span style={styles.greenDot} />
-      Available for projects
-    </div>
+      <section style={styles.heroSection}>
+        <div style={styles.heroLeft}>
+          <div style={styles.availabilityBadge}>
+            <span style={styles.greenDot} />
+            Available for projects
+          </div>
 
-    <h1 style={styles.heroTitle}>
-      Hi, I’m Abdulhafid, a Graphic Designer, Video Editor, and Social
-      Media Manager.
-    </h1>
+          <div style={styles.heroLabel}>Selected Works 2025</div>
 
-    <p style={styles.heroText}>
-      I create visual content that helps brands, media companies, and
-      organizations look professional, communicate clearly, and connect
-      better with their audience.
-    </p>
+          <h1 style={styles.heroTitle}>
+            Hi, I’m Abdulhafid, a Graphic Designer, Video Editor, and Social Media Manager.
+          </h1>
 
-    <div style={styles.heroButtons}>
-      <a href="#contact" style={styles.primaryButton}>Get in touch</a>
-      <a
-        href="https://www.linkedin.com/in/hafid505"
-        target="_blank"
-        rel="noreferrer"
-        style={styles.secondaryButton}
-      >
-        LinkedIn
-      </a>
-      <a
-        href="https://www.behance.net/hafid505"
-        target="_blank"
-        rel="noreferrer"
-        style={styles.secondaryButton}
-      >
-        Behance
-      </a>
-    </div>
-  </div>
-
-  <div style={styles.heroRightCard}>
-    <img
-      src="/profile.jpg"
-      alt="Abdulhafid"
-      style={styles.rightProfileImage}
-    />
-
-    <h3 style={styles.rightCardTitle}>Abdulhafid</h3>
-    <p style={styles.rightCardText}>
-      Graphic Designer, Video Editor, and Social Media Manager focused on
-      creative visuals, campaigns, and digital content.
-    </p>
-
-    <div style={styles.rightInfoBox}>
-      <div style={styles.rightInfoLabel}>Focus</div>
-      <div style={styles.rightInfoValue}>Design, Video, Content</div>
-    </div>
-  </div>
-</section>
-
-      <section id="work" style={styles.section}>
-        <div style={styles.sectionCard}>
-          <h2 style={styles.sectionTitle}>Featured Work</h2>
-          <p style={styles.sectionSubtext}>
-            Replace these sample project images with your real designs, video
-            thumbnails, campaign posters, branding work, or social media
-            projects.
+          <p style={styles.heroText}>
+            I create visual content that helps brands, media companies, and organizations
+            look professional, communicate clearly, and connect better with their audience.
           </p>
 
-          <div style={styles.projectGrid}>
-            {projects.map((project, index) => (
-              <div key={index} style={styles.projectCard}>
-                <div style={styles.projectImageWrap}>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    style={styles.projectImage}
-                  />
-                </div>
-                <h3 style={styles.projectTitle}>{project.title}</h3>
-                <p style={styles.projectDescription}>{project.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section style={styles.twoColumnSection}>
-        <div style={styles.sectionCard}>
-          <h2 style={styles.sectionTitle}>Stack I use</h2>
-          <div style={styles.toolsGrid}>
-            {tools.map((tool, index) => (
-              <div key={index} style={styles.toolBox}>
-                {tool}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div id="about" style={styles.sectionCard}>
-          <h2 style={styles.sectionTitle}>About</h2>
-          <p style={styles.aboutText}>
-            I work across graphic design, video editing, content creation, and
-            social media visuals. My experience includes campaign materials,
-            branded content, event visuals, promotional designs, and digital
-            creative work for different audiences and sectors.
-          </p>
-
-          <div style={styles.statsGrid}>
-            <div style={styles.statCard}>
-              <div style={styles.statNumber}>9+</div>
-              <div style={styles.statLabel}>Years of experience</div>
-            </div>
-            <div style={styles.statCard}>
-              <div style={styles.statNumber}>Creative</div>
-              <div style={styles.statLabel}>Design and media work</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" style={styles.contactSection}>
-        <div style={styles.contactCard}>
-          <h2 style={styles.contactTitle}>Have a project in mind?</h2>
-          <p style={styles.contactText}>
-            Let’s connect and build something strong, creative, and professional.
-          </p>
-
-          <div style={styles.contactButtons}>
-            <a href="mailto:hafid.360@gmail.com" style={styles.primaryButton}>
-              hafid.360@gmail.com
-            </a>
+          <div style={styles.heroButtons}>
+            <a href="#contact" style={styles.primaryButton}>Get in touch</a>
             <a
-              href="https://wa.me/971582048919"
+              href="https://www.linkedin.com/in/hafid505"
               target="_blank"
               rel="noreferrer"
               style={styles.secondaryButton}
             >
-              WhatsApp
+              LinkedIn
+            </a>
+            <a
+              href="https://www.behance.net/hafid505"
+              target="_blank"
+              rel="noreferrer"
+              style={styles.secondaryButton}
+            >
+              Behance
             </a>
           </div>
+        </div>
+
+        <div style={styles.heroRight}>
+          <div style={styles.rightCardTop}>
+            <img src="/profile.jpg" alt="Abdulhafid" style={styles.profileImage} />
+
+            <div>
+              <div style={styles.sideMiniLabel}>Creative Direction</div>
+              <h2 style={styles.sideTitle}>Abdulhafid</h2>
+              <p style={styles.sideText}>
+                Branding, visual communication, video editing, and digital content design.
+              </p>
+            </div>
+          </div>
+
+          <div style={styles.toolsBox}>
+            <div style={styles.toolsTitle}>Software</div>
+            <div style={styles.softwareGrid}>
+              {software.map((item) => (
+                <div key={item.label} style={styles.softwareItem}>
+                  <div style={styles.softwareIcon}>{item.name}</div>
+                  <span style={styles.softwareLabel}>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={styles.focusBox}>
+            <div style={styles.focusLabel}>Focus</div>
+            <div style={styles.focusText}>Branding, Social Media, Video Content</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" style={styles.sectionCard}>
+        <h2 style={styles.sectionTitle}>Featured Work</h2>
+        <p style={styles.sectionText}>
+          A selection of projects focused on visual storytelling, branding, social media, and digital content production.
+        </p>
+
+        <div style={styles.projectGrid}>
+          {projects.map((project) => (
+            <div key={project.title} style={styles.projectCard}>
+              <img src={project.image} alt={project.title} style={styles.projectImage} />
+              <h3 style={styles.projectTitle}>{project.title}</h3>
+              <p style={styles.projectDescription}>{project.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" style={styles.sectionCard}>
+        <h2 style={styles.sectionTitle}>About</h2>
+        <p style={styles.aboutText}>
+          I work across graphic design, social media content, video editing, and campaign visuals.
+          My goal is to create clear, polished, and engaging creative work that supports brands,
+          businesses, and organizations in a professional way.
+        </p>
+      </section>
+
+      <section id="contact" style={styles.sectionCard}>
+        <h2 style={styles.sectionTitle}>Let’s Work Together</h2>
+        <p style={styles.sectionText}>
+          Open to freelance projects, collaborations, and creative opportunities.
+        </p>
+
+        <div style={styles.contactButtons}>
+          <a href="mailto:hafid.360@gmail.com" style={styles.primaryButton}>
+            Email Me
+          </a>
+          <a
+            href="https://wa.me/252612085585"
+            target="_blank"
+            rel="noreferrer"
+            style={styles.secondaryButton}
+          >
+            WhatsApp
+          </a>
         </div>
       </section>
     </main>
@@ -196,181 +171,148 @@ export default function Page() {
 const styles = {
   page: {
     minHeight: "100vh",
-    backgroundColor: "#090b10",
+    backgroundColor: "#02050b",
     color: "#ffffff",
     padding: "24px",
-    fontFamily: "Arial, sans-serif",
+    fontFamily:
+      'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    position: "relative",
+    overflowX: "hidden",
   },
 
-  header: {
-    maxWidth: "1280px",
-    margin: "0 auto 24px auto",
+  backgroundGlowOne: {
+    position: "absolute",
+    top: 120,
+    left: -120,
+    width: 420,
+    height: 420,
+    background: "radial-gradient(circle, rgba(142,255,0,0.08), transparent 65%)",
+    filter: "blur(30px)",
+    pointerEvents: "none",
+  },
+
+  backgroundGlowTwo: {
+    position: "absolute",
+    top: 380,
+    right: -120,
+    width: 440,
+    height: 440,
+    background: "radial-gradient(circle, rgba(255,255,255,0.05), transparent 65%)",
+    filter: "blur(40px)",
+    pointerEvents: "none",
+  },
+
+  navbar: {
+    maxWidth: "1400px",
+    margin: "0 auto 28px auto",
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: "28px",
+    padding: "20px 24px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: "16px",
-    padding: "18px 22px",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "24px",
-    background: "rgba(255,255,255,0.03)",
-    backdropFilter: "blur(10px)",
-    flexWrap: "wrap",
+    gap: "20px",
+    background:
+      "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
+    backdropFilter: "blur(12px)",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
+    position: "sticky",
+    top: "20px",
+    zIndex: 20,
   },
 
   logo: {
-    fontSize: "28px",
-    fontWeight: "700",
-    letterSpacing: "-0.02em",
+    fontSize: "24px",
+    fontWeight: 800,
+    letterSpacing: "-0.03em",
   },
 
-  nav: {
+  navLinks: {
     display: "flex",
+    gap: "28px",
     alignItems: "center",
-    gap: "22px",
-    flexWrap: "wrap",
   },
 
   navLink: {
-    color: "rgba(255,255,255,0.78)",
+    color: "rgba(255,255,255,0.82)",
     textDecoration: "none",
-    fontSize: "15px",
+    fontSize: "18px",
+    fontWeight: 500,
   },
 
   cvButton: {
-    backgroundColor: "#8CFF1A",
-    color: "#000000",
-    padding: "14px 24px",
-    borderRadius: "999px",
-    fontWeight: "700",
-    fontSize: "16px",
+    backgroundColor: "#95ff17",
+    color: "#071100",
     textDecoration: "none",
-    display: "inline-block",
+    padding: "16px 28px",
+    borderRadius: "999px",
+    fontWeight: 800,
+    fontSize: "18px",
+    boxShadow: "0 8px 20px rgba(149,255,23,0.22)",
   },
 
-heroSection: {
-  maxWidth: "1280px",
-  margin: "0 auto",
-  display: "grid",
-  gridTemplateColumns: "1.6fr 1fr",
-  gap: "24px",
-},
-heroLeftCard: {
-  border: "1px solid rgba(255,255,255,0.08)",
-  borderRadius: "32px",
-  padding: "48px",
-  background:
-    "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-},
+  heroSection: {
+    maxWidth: "1400px",
+    margin: "0 auto 28px auto",
+    display: "grid",
+    gridTemplateColumns: "1.65fr 1fr",
+    gap: "24px",
+    alignItems: "stretch",
+  },
 
-heroRightCard: {
-  border: "1px solid rgba(255,255,255,0.08)",
-  borderRadius: "32px",
-  padding: "32px",
-  background:
-    "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-},
-
-rightProfileImage: {
-  width: "110px",
-  height: "110px",
-  borderRadius: "50%",
-  objectFit: "cover",
-  display: "block",
-  border: "2px solid rgba(255,255,255,0.12)",
-  marginBottom: "24px",
-},
-
-rightCardTitle: {
-  fontSize: "30px",
-  fontWeight: "700",
-  margin: "0 0 14px 0",
-},
-
-rightCardText: {
-  fontSize: "17px",
-  lineHeight: "1.8",
-  color: "rgba(255,255,255,0.68)",
-  margin: "0 0 24px 0",
-},
-
-rightInfoBox: {
-  marginTop: "auto",
-  padding: "18px 20px",
-  borderRadius: "20px",
-  border: "1px solid rgba(255,255,255,0.08)",
-  backgroundColor: "rgba(255,255,255,0.04)",
-},
-
-rightInfoLabel: {
-  fontSize: "13px",
-  color: "rgba(255,255,255,0.55)",
-  marginBottom: "8px",
-},
-
-rightInfoValue: {
-  fontSize: "18px",
-  fontWeight: "600",
-},
-  heroCard: {
+  heroLeft: {
     border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "32px",
-    padding: "48px",
+    borderRadius: "34px",
+    padding: "52px",
     background:
-      "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+      "linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02))",
+    boxShadow: "0 24px 60px rgba(0,0,0,0.35)",
   },
 
-  availableBadge: {
+  availabilityBadge: {
     display: "inline-flex",
     alignItems: "center",
     gap: "10px",
-    padding: "10px 16px",
+    padding: "12px 18px",
     borderRadius: "999px",
     border: "1px solid rgba(255,255,255,0.08)",
-    backgroundColor: "rgba(255,255,255,0.04)",
-    color: "rgba(255,255,255,0.8)",
-    fontSize: "14px",
-    marginBottom: "20px",
+    backgroundColor: "rgba(255,255,255,0.03)",
+    fontSize: "16px",
+    color: "rgba(255,255,255,0.9)",
+    marginBottom: "18px",
   },
 
   greenDot: {
     width: "10px",
     height: "10px",
     borderRadius: "50%",
-    backgroundColor: "#8CFF1A",
-    display: "inline-block",
+    backgroundColor: "#95ff17",
+    boxShadow: "0 0 12px rgba(149,255,23,0.7)",
   },
 
-  smallProfileImage: {
-    width: "96px",
-    height: "96px",
-    borderRadius: "50%",
-    objectFit: "cover",
-    display: "block",
-    border: "2px solid rgba(255,255,255,0.12)",
-    marginBottom: "24px",
+  heroLabel: {
+    fontSize: "14px",
+    textTransform: "uppercase",
+    letterSpacing: "0.18em",
+    color: "rgba(255,255,255,0.45)",
+    marginBottom: "18px",
   },
 
   heroTitle: {
-    fontSize: "56px",
-    lineHeight: "1.08",
-    fontWeight: "700",
-    letterSpacing: "-0.03em",
-    margin: "0 0 22px 0",
-    maxWidth: "820px",
+    fontSize: "clamp(52px, 7vw, 86px)",
+    lineHeight: 1.02,
+    margin: "0 0 28px 0",
+    letterSpacing: "-0.05em",
+    fontWeight: 800,
+    maxWidth: "900px",
   },
 
   heroText: {
-    fontSize: "20px",
-    lineHeight: "1.8",
-    color: "rgba(255,255,255,0.68)",
-    maxWidth: "760px",
-    margin: "0 0 28px 0",
+    fontSize: "clamp(20px, 2vw, 26px)",
+    lineHeight: 1.7,
+    color: "rgba(255,255,255,0.7)",
+    maxWidth: "900px",
+    marginBottom: "34px",
   },
 
   heroButtons: {
@@ -380,55 +322,181 @@ rightInfoValue: {
   },
 
   primaryButton: {
-    backgroundColor: "#8CFF1A",
-    color: "#000000",
-    padding: "14px 22px",
-    borderRadius: "18px",
-    fontWeight: "700",
-    fontSize: "15px",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#95ff17",
+    color: "#071100",
     textDecoration: "none",
-    display: "inline-block",
+    padding: "18px 28px",
+    borderRadius: "18px",
+    fontWeight: 800,
+    fontSize: "18px",
+    minWidth: "160px",
   },
 
   secondaryButton: {
-    backgroundColor: "rgba(255,255,255,0.05)",
-    color: "#ffffff",
-    padding: "14px 22px",
-    borderRadius: "18px",
-    fontWeight: "600",
-    fontSize: "15px",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
     textDecoration: "none",
-    display: "inline-block",
+    color: "#ffffff",
+    padding: "18px 26px",
+    borderRadius: "18px",
     border: "1px solid rgba(255,255,255,0.08)",
+    backgroundColor: "rgba(255,255,255,0.03)",
+    fontWeight: 700,
+    fontSize: "18px",
   },
 
-  section: {
-    maxWidth: "1280px",
-    margin: "24px auto 0 auto",
+  heroRight: {
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: "34px",
+    padding: "34px",
+    background:
+      "linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02))",
+    boxShadow: "0 24px 60px rgba(0,0,0,0.35)",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    gap: "24px",
+  },
+
+  rightCardTop: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  },
+
+  profileImage: {
+    width: "120px",
+    height: "120px",
+    borderRadius: "999px",
+    objectFit: "cover",
+    border: "2px solid rgba(255,255,255,0.18)",
+    boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+  },
+
+  sideMiniLabel: {
+    fontSize: "13px",
+    textTransform: "uppercase",
+    letterSpacing: "0.16em",
+    color: "#95ff17",
+    marginBottom: "10px",
+  },
+
+  sideTitle: {
+    fontSize: "48px",
+    lineHeight: 1.05,
+    margin: "0 0 12px 0",
+    letterSpacing: "-0.04em",
+    fontWeight: 800,
+  },
+
+  sideText: {
+    fontSize: "19px",
+    lineHeight: 1.7,
+    color: "rgba(255,255,255,0.68)",
+    margin: 0,
+  },
+
+  toolsBox: {
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: "24px",
+    padding: "22px",
+    backgroundColor: "rgba(255,255,255,0.02)",
+  },
+
+  toolsTitle: {
+    fontSize: "15px",
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    color: "rgba(255,255,255,0.48)",
+    marginBottom: "18px",
+  },
+
+  softwareGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gap: "14px",
+  },
+
+  softwareItem: {
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+    padding: "12px 14px",
+    borderRadius: "18px",
+    border: "1px solid rgba(255,255,255,0.08)",
+    backgroundColor: "rgba(255,255,255,0.025)",
+  },
+
+  softwareIcon: {
+    width: "42px",
+    height: "42px",
+    minWidth: "42px",
+    borderRadius: "12px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: 800,
+    fontSize: "16px",
+    color: "#95ff17",
+    backgroundColor: "rgba(149,255,23,0.08)",
+    border: "1px solid rgba(149,255,23,0.16)",
+  },
+
+  softwareLabel: {
+    fontSize: "16px",
+    color: "rgba(255,255,255,0.9)",
+    fontWeight: 600,
+  },
+
+  focusBox: {
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: "24px",
+    padding: "22px",
+    backgroundColor: "rgba(255,255,255,0.02)",
+  },
+
+  focusLabel: {
+    fontSize: "15px",
+    color: "rgba(255,255,255,0.48)",
+    marginBottom: "10px",
+  },
+
+  focusText: {
+    fontSize: "34px",
+    lineHeight: 1.15,
+    letterSpacing: "-0.03em",
+    fontWeight: 800,
   },
 
   sectionCard: {
+    maxWidth: "1400px",
+    margin: "0 auto 28px auto",
     border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "32px",
-    padding: "36px",
+    borderRadius: "34px",
+    padding: "40px",
     background:
-      "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+      "linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02))",
+    boxShadow: "0 24px 60px rgba(0,0,0,0.35)",
   },
 
   sectionTitle: {
-    fontSize: "42px",
-    fontWeight: "700",
-    letterSpacing: "-0.03em",
-    margin: "0 0 12px 0",
+    fontSize: "54px",
+    lineHeight: 1.05,
+    margin: "0 0 16px 0",
+    letterSpacing: "-0.04em",
+    fontWeight: 800,
   },
 
-  sectionSubtext: {
-    fontSize: "17px",
-    lineHeight: "1.8",
-    color: "rgba(255,255,255,0.65)",
-    margin: "0 0 26px 0",
-    maxWidth: "880px",
+  sectionText: {
+    fontSize: "20px",
+    lineHeight: 1.7,
+    color: "rgba(255,255,255,0.68)",
+    maxWidth: "980px",
+    marginBottom: "28px",
   },
 
   projectGrid: {
@@ -438,124 +506,42 @@ rightInfoValue: {
   },
 
   projectCard: {
-    backgroundColor: "rgba(255,255,255,0.03)",
     border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "26px",
+    borderRadius: "28px",
     padding: "18px",
-  },
-
-  projectImageWrap: {
-    width: "100%",
-    aspectRatio: "4 / 3",
-    borderRadius: "20px",
-    overflow: "hidden",
-    backgroundColor: "#111318",
-    marginBottom: "18px",
+    backgroundColor: "rgba(255,255,255,0.02)",
   },
 
   projectImage: {
     width: "100%",
-    height: "100%",
+    aspectRatio: "4 / 3",
     objectFit: "cover",
+    borderRadius: "22px",
     display: "block",
+    marginBottom: "18px",
   },
 
   projectTitle: {
     fontSize: "24px",
-    fontWeight: "700",
-    margin: "0 0 10px 0",
+    lineHeight: 1.2,
+    margin: "0 0 12px 0",
+    fontWeight: 800,
+    letterSpacing: "-0.03em",
   },
 
   projectDescription: {
-    fontSize: "15px",
-    lineHeight: "1.7",
-    color: "rgba(255,255,255,0.65)",
+    fontSize: "18px",
+    lineHeight: 1.7,
+    color: "rgba(255,255,255,0.68)",
     margin: 0,
   },
 
-  twoColumnSection: {
-    maxWidth: "1280px",
-    margin: "24px auto 0 auto",
-    display: "grid",
-    gridTemplateColumns: "1fr 1.2fr",
-    gap: "24px",
-  },
-
-  toolsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: "12px",
-    marginTop: "24px",
-  },
-
-  toolBox: {
-    padding: "16px",
-    borderRadius: "18px",
-    border: "1px solid rgba(255,255,255,0.08)",
-    backgroundColor: "rgba(255,255,255,0.04)",
-    color: "rgba(255,255,255,0.82)",
-    fontSize: "15px",
-  },
-
   aboutText: {
-    fontSize: "18px",
-    lineHeight: "1.9",
-    color: "rgba(255,255,255,0.68)",
-    margin: "18px 0 0 0",
-  },
-
-  statsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: "16px",
-    marginTop: "28px",
-  },
-
-  statCard: {
-    padding: "24px",
-    borderRadius: "22px",
-    border: "1px solid rgba(255,255,255,0.08)",
-    backgroundColor: "rgba(255,255,255,0.04)",
-  },
-
-  statNumber: {
-    fontSize: "30px",
-    fontWeight: "700",
-    marginBottom: "8px",
-  },
-
-  statLabel: {
-    color: "rgba(255,255,255,0.65)",
-    fontSize: "15px",
-  },
-
-  contactSection: {
-    maxWidth: "1280px",
-    margin: "24px auto 0 auto",
-    paddingBottom: "24px",
-  },
-
-  contactCard: {
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "32px",
-    padding: "42px 36px",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-  },
-
-  contactTitle: {
-    fontSize: "48px",
-    fontWeight: "700",
-    letterSpacing: "-0.03em",
-    margin: "0 0 12px 0",
-  },
-
-  contactText: {
-    fontSize: "18px",
-    color: "rgba(255,255,255,0.68)",
-    margin: "0 0 26px 0",
-    lineHeight: "1.8",
+    fontSize: "22px",
+    lineHeight: 1.8,
+    color: "rgba(255,255,255,0.72)",
+    maxWidth: "1000px",
+    margin: 0,
   },
 
   contactButtons: {
