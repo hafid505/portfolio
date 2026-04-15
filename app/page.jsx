@@ -508,8 +508,8 @@ export default function Page() {
               <div className="eyebrow">Creative Portfolio</div>
 
               <h1 className="hero-title">
-                Abdulhafid crafts design, video, and social media visuals that
-                help brands communicate with clarity and impact.
+                Senior Graphic Designer and Brand Designer with 9+ years of experience creating visual identities, 
+                campaign designs, and brand systems.
               </h1>
 
               <p className="hero-text">
@@ -649,8 +649,8 @@ export default function Page() {
               </p>
 
               <div className="contact-list">
-                <a className="contact-link" href="mailto:hafid.360@gmail.com">
-                  hafid.360@gmail.com
+                <a className="contact-link" href="mailto:hello@abdulhafid.com">
+                  hello@abdulhafid.com
                 </a>
 
                 <a
